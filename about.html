@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>traVel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-adaptive.css">
+    <!-- Google Font: Montserrat with Cyrillic subset -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&amp;subset=cyrillic" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <!-- Side menu -->
+        <nav class="desc-menu">
+            <div class="logo">
+                <img src="img/logo.svg" alt="INSPIRAYION travel">
+            </div>
+            <!-- Main menu -->
+            <ul class="main-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="tours.html">Туры</a></li>
+            </ul>
+            
+            <button id="hamburger_id" class="hamburger hamburger-slider" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <!-- Footer of side menu -->
+            <div class="footer-main">
+                <div class="city-phone">
+                    <p>+7 499 673 3732</p>
+                </div>
+                <div class="tour-operator-number">
+                    <p>Tour operator registry number:<br>
+                        тур.оператора: РТО 020392</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Exclusive holidays section -->
+        <section class="premium-holidays premium-holidays--about">
+            <div class="container container--side-aligned">
+                <h1>О компании</h1>
+                <br>
+                <p>Информационная информация</p>
+            </div>
+        </section>
+        <!-- Exclusive holidays description section -->
+        <section class="premium-holidays-desc" style="padding: 100px 0;">
+            <div class="container">
+                <div class="premium-holidays-desc-bg premium-holidays-desc-bg--about">
+                    <div class="desc-text-on-glass premium-holidays-desc-text--about">
+                        <h2>О нас</h2>
+                        <p>
+                            Добро пожаловать в Nature — турагентство, где каждая поездка превращается в настоящее приключение, погружающее вас в мир первозданной природы. Мы предлагаем тщательно разработанные маршруты по уединённым уголкам нашей планеты, где гармония с природой становится реальностью.
+                        </p>
+                        <p>
+                            Наши путешествия созданы для тех, кто ценит уникальные впечатления и стремится открыть для себя неизведанные маршруты. От спокойных прогулок по лесным тропинкам до активных походов в горы — в каждом туре присутствует магия природы, вдохновляющая на новые свершения.
+                        </p>
+                        <p>
+                            Nature — это не просто организация туров, это ваш проводник в мир настоящей свободы и гармонии с окружающей средой. Присоединяйтесь к нам, чтобы испытать чудеса природы и создать воспоминания, которые будут согревать душу на долгие годы!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="subscribe-newsletter">
+                    <div class="subscribe-newsletter-desc">
+                        <p>Subscribe to our newsletter</p>
+                        <p>Get the latest news and promotions<br>
+                            delivered to your email</p>
+                    </div>
+                    <div class="form-privacy-policy">
+                        <form action="#">
+                            <input type="email" name="email" required placeholder="Your e-mail">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <div class="sn-privacy-policy">
+                            <p>By subscribing, you agree to our <a href="#">privacy policy</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </footer>
+        <div hidden>
+            <form class="popup-form callback zoom-anim-dialog" id="callback" method="POST">
+                <div class="success">Thank you for your request! <br> Our managers will contact you shortly.</div>
+                <input type="hidden" name="project_name" value="INSPIRATION Travel">
+                <input type="hidden" name="admin_email" value="shalafan@yandex.ru">
+                <input type="hidden" name="form_subject" value="Request from the website: INSPIRATION travel">
+                <h3 class="h3">Contact us</h3>
+                <div class="wrap">
+                    <div class="tr">
+                        <label class="l_phone">
+                            <input type="tel" name="Телефон" id="phone" required>
+                            <div class="label-box">
+                                <span id="phone-header">Телефон</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="tr">
+                        <label class="l_email">
+                            <input type="text" name="Email" id="email" required>
+                            <div class="label-box">
+                                <span id="email-header">E-mail</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="tr">
+                        <label class="l_message">
+                            <textarea name="Сообщение" id="message" placeholder="Сообщение"></textarea>
+                            <div class="label-box">
+                                <!-- Example of commented-out span -->
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <button class="button btn_callback">Send</button>
+            </form>
+        </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Toggle hamburger button state and mobile menu visibility
+            $('#hamburger_id').click(function(){
+                $(this).toggleClass('is-active');
+                $('.mobile-menu').toggleClass('active');
+                $('.desc-menu').toggleClass('logo-none-bg');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>traVel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-adaptive.css">
+    <!-- Google Font: Montserrat with Cyrillic subset -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&amp;subset=cyrillic" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .container {
+          display: flex;
+          padding: 0;
+          margin: 30px auto;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tour-image {
+          flex: 1;
+          background-size: cover;
+          background-position: center;
+          min-height: 400px;
+        }
+        .tour-info {
+          flex: 1;
+          padding: 40px 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .tour-info h1 {
+          margin-bottom: 15px;
+          font-size: 28px;
+        }
+        .tour-info .date {
+          color: #777;
+          margin-bottom: 20px;
+          font-size: 18px;
+        }
+        .tour-info p {
+          margin-bottom: 30px;
+          font-size: 16px;
+          line-height: 1.4;
+        }
+        .book-btn {
+          display: inline-block;
+          text-decoration: none;
+          text-align: center;
+          background: #007BFF;
+          color: #fff;
+          padding: 12px 25px;
+          border-radius: 5px;
+          transition: background 0.3s;
+          font-size: 16px;
+          width: 200px;
+        }
+        .book-btn:hover {
+          background: #0056b3;
+        }
+        @media (max-width: 768px) {
+          .container {
+            flex-direction: column;
+          }
+          .tour-image,
+          .tour-info {
+            flex: none;
+            width: 100%;
+          }
+          .tour-info {
+            padding: 20px;
+          }
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <!-- Side menu -->
+        <nav class="desc-menu">
+            <div class="logo">
+                <img src="img/logo.svg" alt="INSPIRAYION travel">
+            </div>
+            <!-- Main menu -->
+            <ul class="main-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+            
+            <button id="hamburger_id" class="hamburger hamburger-slider" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <!-- Footer of side menu -->
+            <div class="footer-main">
+                <div class="city-phone">
+                    <p>+7 499 673 3732</p>
+                </div>
+                <div class="tour-operator-number">
+                    <p>Tour operator registry number:<br>
+                        тур.оператора: РТО 020392</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Exclusive holidays section -->
+        <section>
+            <div class="container" id="tour-content" style="min-height: 80vh;">
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="subscribe-newsletter">
+                    <div class="subscribe-newsletter-desc">
+                        <p>Subscribe to our newsletter</p>
+                        <p>Get the latest news and promotions<br>
+                            delivered to your email</p>
+                    </div>
+                    <div class="form-privacy-policy">
+                        <form action="#">
+                            <input type="email" name="email" required placeholder="Your e-mail">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <div class="sn-privacy-policy">
+                            <p>By subscribing, you agree to our <a href="#">privacy policy</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </footer>
+
+    </main>
+<script>
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const tours = {
+        "1": {
+            title: "Чудесная идея для дня святого валентика",
+            date: "14 февраля",
+            description: "Проведите незабываемый праздник с нашим специальным туром. В тур входит романтический ужин, экскурсия по красивым местам и многое другое.",
+            image: "img/cards/home-card1.jpeg"
+        },
+        "2": {
+            title: "Посетите удивительную Камчатку",
+            date: "28 апреля",
+            description: "Удивительные пейзажи, активный отдых и незабываемые впечатления ждут вас на Камчатке.",
+            image: "img/cards/home-card-3.jpeg"
+        },
+        "3": {
+            title: "Обретите спокойствие на Алтае",
+            date: "14 мая",
+            description: "Насладитесь природой и отдыхом в горах Алтая. Специальная программа и комфортные условия обеспечены.",
+            image: "img/cards/home-card2.jpg"
+        },
+        "4": {
+            title: "Открытие выставки современного искусства",
+            date: "5 августа",
+            description: "Погрузитесь в мир современного искусства на открытии уникальной выставки в новом музее.",
+            image: "img/main-about.png"
+        },
+        "5": {
+            title: "Фестиваль народного творчества",
+            date: "1 сентября",
+            description: "Уникальное событие, объединяющее традиции и современные тенденции. Приходите с семьей и друзьями.",
+            image: "img/main-header-banner.png"
+        },
+        "6": {
+            title: "Экскурсия по живописным маршрутам Алтая: новые туры",
+            date: "29 февраля",
+            description: "Проведите день в окружении природной красоты, посещая лучшие экскурсионные маршруты Алтая.",
+            image: "img/contacts-banner.jpg"
+        }
+    };
+
+    const tourId = getQueryParam("id");
+    const tour = tours[tourId];
+
+    const tourContentDiv = document.getElementById("tour-content");
+    if (tour) {
+        tourContentDiv.innerHTML = `
+        <div class="tour-image" style="background-image: url('${tour.image}');">
+        </div>
+        <div class="tour-info">
+            <h1>${tour.title}</h1>
+            <p class="date">${tour.date}</p>
+            <p>${tour.description}</p>
+            <a href="#" class="book-btn">Забронировать</a>
+            </div>
+        </div>
+        `;
+    } else {
+        tourContentDiv.innerHTML = "<p>Извините( <br> Тур больше не доступен</p>";
+    }
+</script>
+</body>
+</html>
+<!-- <img src="${tour.image}" alt="${tour.title}"> -->
