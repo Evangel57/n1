@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="img/logo.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-adaptive.css">
+    <link rel="stylesheet" href="css/popup-form.css">
     <!-- Google Font: Montserrat with Cyrillic subset -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&amp;subset=cyrillic" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -40,6 +41,7 @@
         <!-- Exclusive holidays section -->
         <section class="premium-holidays">
             <div class="container">
+                <p class="hero-label">Nature Travel</p>
                 <h1>Ощути дыхание природы</h1>
                 <!-- List of advantages -->
                 <div class="advantages-list">
@@ -154,7 +156,7 @@
                 
             </div>
         </footer>
-        <div hidden>
+        <div class="mfp-hide">
             <form class="popup-form callback zoom-anim-dialog" id="callback" method="POST">
                 <div class="success">Спасибо! Наш менеджер свяжется с вами в ближайшее время.</div>
                 <input type="hidden" name="project_name" value="Nature Travel">
@@ -200,6 +202,20 @@
         burger.addEventListener('click', () => {
             burger.classList.toggle('active');
             mobileMenu.classList.toggle('open');
+        });
+
+        $(document).ready(function() {
+            $('.popup-with-move-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-slide-bottom'
+            });
         });
     </script>
 </body>

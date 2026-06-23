@@ -1,3 +1,14 @@
+// ===== PARALLAX TOURS BG =====
+const toursBg = document.querySelector('main.full-bg');
+
+if (toursBg && window.innerWidth > 768) {
+  const updateToursBg = () => {
+    toursBg.style.backgroundPositionY = `calc(50% + ${window.scrollY * 0.4}px)`;
+  };
+  window.addEventListener('scroll', updateToursBg, { passive: true });
+  updateToursBg();
+}
+
 // ===== PARALLAX HERO =====
 const heroEl = document.querySelector('.premium-holidays:not(.premium-holidays--tours)');
 
