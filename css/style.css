@@ -150,6 +150,15 @@ main {
     background: none;
 }
 
+.hero-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 18px;
+}
+
 .premium-holidays h1 {
     font-weight: 300;
     font-size: 70px;
@@ -192,7 +201,9 @@ main {
 
 /* Promotions and News */
 .news-events {
-    margin-top: -140px;
+    margin-top: -240px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Link */
