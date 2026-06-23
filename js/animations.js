@@ -6,21 +6,21 @@ if (heroEl && window.innerWidth > 768) {
     const scrolled = window.scrollY;
     const rect = heroEl.getBoundingClientRect();
     if (rect.bottom > 0 && rect.top < window.innerHeight) {
-      heroEl.style.backgroundPositionY = `calc(50% + ${scrolled * 0.35}px)`;
+      heroEl.style.backgroundPositionY = `calc(50% + ${scrolled * 0.55}px)`;
     }
   };
   window.addEventListener('scroll', updateHeroParallax, { passive: true });
   updateHeroParallax();
 }
 
-// ===== PARALLAX ABOUT SECTION =====
+// ===== PARALLAX ABOUT BG =====
 const aboutBg = document.querySelector('.premium-holidays-desc-bg');
 
 if (aboutBg && window.innerWidth > 768) {
   const updateAboutParallax = () => {
     const rect = aboutBg.getBoundingClientRect();
     if (rect.bottom > 0 && rect.top < window.innerHeight) {
-      const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.12;
+      const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * 0.22;
       aboutBg.style.backgroundPositionY = `calc(50% + ${offset}px)`;
     }
   };
@@ -28,30 +28,27 @@ if (aboutBg && window.innerWidth > 768) {
   updateAboutParallax();
 }
 
-// ===== PARALLAX CARDS (лёгкое всплытие) =====
+// ===== PARALLAX CARDS =====
 const cards = document.querySelectorAll('.news-events-item');
 
 if (cards.length && window.innerWidth > 768) {
   const updateCardsParallax = () => {
     cards.forEach((card, i) => {
+      if (card.matches(':hover')) return;
       const rect = card.getBoundingClientRect();
       if (rect.bottom > 0 && rect.top < window.innerHeight) {
-        const progress = 1 - rect.top / window.innerHeight;
-        const offset = Math.max(0, (0.5 - progress) * 30);
-        const delay = i * 0.04;
-        card.style.transform = `translateY(${offset * (1 - delay * 2)}px)`;
+        const progress = rect.top / window.innerHeight;
+        const offset = Math.max(0, progress * 28) - i * 3;
+        card.style.transform = `translateY(${offset}px)`;
       }
     });
   };
 
-  // Не переопределяем hover — сбрасываем parallax при hover
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       card.style.transform = 'translateY(-6px)';
     });
-    card.addEventListener('mouseleave', () => {
-      updateCardsParallax();
-    });
+    card.addEventListener('mouseleave', updateCardsParallax);
   });
 
   window.addEventListener('scroll', updateCardsParallax, { passive: true });
@@ -71,7 +68,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Stagger delay for groups
 document.querySelectorAll('.reveal-group').forEach(group => {
   group.querySelectorAll('.reveal').forEach((el, i) => {
     el.dataset.delay = `${i * 100}ms`;
