@@ -13,36 +13,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-        <!-- Side menu -->
-        <nav class="desc-menu">
-            <div class="logo">
-                <img src="img/logo.svg" alt="INSPIRAYION travel">
-            </div>
-            <!-- Main menu -->
-            <ul class="main-menu">
-                <li><a href="about.html">О компании</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-                <li><a href="tours.html">Туры</a></li>
-            </ul>
-
-            
-            <button id="hamburger_id" class="hamburger hamburger-slider" type="button">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
+    <header class="site-header">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="img/logo.svg" alt="INSPIRATION travel">
+            </a>
+            <nav class="nav-links">
+                <a href="about.html">О компании</a>
+                <a href="tours.html">Туры</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+            <div class="nav-phone">+7 499 673 3732</div>
+            <button class="nav-burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
             </button>
-            <!-- Footer of side menu -->
-            <div class="footer-main">
-                <div class="city-phone">
-                    <p>+7 499 673 3732</p>
-                </div>
-                <div class="tour-operator-number">
-                    <p>Tour operator registry number:<br>
-                        тур.оператора: РТО 020392</p>
-                </div>
-            </div>
-        </nav>
+        </div>
+        <div class="nav-mobile" id="mobile-menu">
+            <a href="about.html">О компании</a>
+            <a href="tours.html">Туры</a>
+            <a href="contacts.html">Контакты</a>
+            <span class="nav-mobile-phone">+7 499 673 3732</span>
+        </div>
     </header>
     <main>
         <!-- Exclusive holidays section -->
@@ -204,13 +195,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/scripts.min.js"></script>
     <script>
-        $(document).ready(function(){
-            // Toggle hamburger button state and mobile menu visibility
-            $('#hamburger_id').click(function(){
-                $(this).toggleClass('is-active');
-                $('.mobile-menu').toggleClass('active');
-                $('.desc-menu').toggleClass('logo-none-bg');
-            });
+        const burger = document.getElementById('burger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
         });
     </script>
 </body>
